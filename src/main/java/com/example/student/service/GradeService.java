@@ -35,6 +35,7 @@ public class GradeService {
         if(optionalGrade.isPresent()){
             Grade existingGrade = optionalGrade.get();
             existingGrade.setName(gradeInput.name());
+            existingGrade.setStatus(gradeInput.status());
             return gradeRepository.save(existingGrade);
         }else{
             throw new RuntimeException("Grade Not found");
@@ -44,3 +45,4 @@ public class GradeService {
         return gradeRepository.findById(id);
     }
 }
+
